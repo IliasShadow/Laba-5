@@ -3,14 +3,11 @@
 using namespace std;
 class Human{
 protected:
-    string name;
-    int age;
-    int height;
+    string name{"Nobody"};
+    int age{15};
+    int height{170};
 public:
     Human(){
-        name="Nobody";
-        age=15;
-        height=170;
     }
     Human(string s1,int s2,int s3){
         name=s1;
@@ -36,6 +33,45 @@ public:
         return height;
     }
 
+};
+class Specialization{
+private:
+    int type{0};
+public:
+    Specialization(){
+    }
+    Specialization(int t){
+        type=t;
+    }
+    void setSpec(int t){
+        type=t;
+    }
+    int getSpec(){return type;
+    }
+    void Prezentation(){
+        cout<<"У меня "<<type+2<<" тип специализации, согласно уставу организации"<<endl;
+
+    };
+};
+class Programmer:public Specialization{
+private:
+    string company{"No one"};
+public:
+    Programmer(){}
+    void setCom(string s){
+        company=s;
+    }
+    string getCom(){
+    return company;}
+};
+class Worker:public Programmer{
+private:
+    unsigned int year{0};
+public:
+    Worker(){}
+    void Say(){
+        cout<<"Это мой"<<year <<"первый год работы на этой специальности(код специальности - "<<getSpec()<<")"<<endl;
+    }
 };
 class Student:public Human{
 protected:
