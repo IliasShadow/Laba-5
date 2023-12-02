@@ -25,13 +25,13 @@ public:
     void setAge(int s){
         Age=s;
     }
-    string getAge(){
+    int getAge(){
         return age;
     }
     void setHeight(int s){
         height=s;
     }
-    string getHeight(){
+    int getHeight(){
         return height;
     }
 
