@@ -64,15 +64,6 @@ public:
     string getCom(){
     return company;}
 };
-class Worker:public Programmer{
-private:
-    unsigned int year{0};
-public:
-    Worker(){}
-    void Say(){
-        cout<<"Это мой"<<year <<"первый год работы на этой специальности(код специальности - "<<getSpec()<<")"<<endl;
-    }
-};
 class Student:public Human{
 protected:
     string school;
@@ -89,13 +80,32 @@ public:
         school=s4;
     }
 };
+class Worker : public Programmer,public Student{
+private:
+    unsigned int year{0};
+public:
+    Worker(){}
+    void setYear(unsigned int t){year=t;}
+    unsigned int hetYear(){return year;
+    }
+    void Say(){
+        cout<<"Это мой "<<year <<" первый год работы на этой специальности(код специальности - "<<getSpec()<<") в компании "<<getCom()<<endl;
+        cout<<"Мне "<<age<<" лет и моё имя -  "<<name<<endl;
+    }
+};
+
 int main(){
+    setlocale(0,"");
     Human You,He;
     cout<<He.getHeight()<<endl;
     Student Me;
     Me.setAge(19);
     cout<<Me.getAge()<<endl;
     cout<<Me.getHeight()<<endl;
-    setlocale(0,"");
+    Worker It;
+    It.setYear(5);
+    It.setCom("BBC");
+    It.setName("Steve");
+    It.Say();
     return 0;
 }
