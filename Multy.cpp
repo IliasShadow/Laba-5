@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string.h>
+using namespace std;
 class Human{
 protected:
     string name;
@@ -23,7 +24,7 @@ public:
         return name;
     }
     void setAge(int s){
-        Age=s;
+        age=s;
     }
     int getAge(){
         return age;
@@ -36,7 +37,7 @@ public:
     }
 
 };
-class Student:protected Human{
+class Student:public Human{
 protected:
     string school;
 public:
@@ -44,9 +45,8 @@ public:
         name="Nobody";
         age=18;
         height=180;
-        school="No school"
-    }
-    Student(string s1,int s2,int s3,string s4{
+        school="No school";    }
+    Student(string s1,int s2,int s3,string s4){
         name=s1;
         age=s2;
         height=s3;
@@ -54,8 +54,12 @@ public:
     }
 };
 int main(){
-    Human Me,You,He;
+    Human You,He;
+    cout<<He.getHeight()<<endl;
+    Student Me;
+    Me.setAge(19);
+    cout<<Me.getAge()<<endl;
+    cout<<Me.getHeight()<<endl;
     setlocale(0,"");
     return 0;
 }
-
