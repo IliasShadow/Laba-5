@@ -2,10 +2,11 @@
 
 class Human{
 public:
-    Human{
+    Human(){
     }
 };
 int main(){
+    Human Me,You,He;
     setlocale(0,"");
     return 0;
 }
