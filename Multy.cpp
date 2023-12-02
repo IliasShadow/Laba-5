@@ -53,7 +53,7 @@ public:
 
     };
 };
-class Programmer:public Specialization{
+class Programmer:virtual public Specialization{
 private:
     string company{"No one"};
 public:
@@ -63,6 +63,9 @@ public:
     }
     string getCom(){
     return company;}
+    void Prezentation(){
+        cout<<"У меня "<<getSpec()+1<<" тип специализации"<<endl;
+    }
 };
 class Student:public Human{
 protected:
@@ -107,5 +110,6 @@ int main(){
     It.setCom("BBC");
     It.setName("Steve");
     It.Say();
+    It.Prezentation();
     return 0;
 }
